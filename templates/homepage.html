@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block head %}
+<title>Garden Database - Homepage</title>
+<style>
+    div {
+      background-image: url('https://img.lovepik.com/background/20211030/medium/lovepik-cell-phone-wallpaper-with-plant-background-image_400435030.jpg');
+      height: 100%;
+      text-align: center
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h2>Welcome to the Garden Database</h2>
+<h3>Input your zipcode to find plants that will thrive in your hardiness zone</h3>
+<img class="media-right" src="https://www.thespruce.com/thmb/7O3aZsuO5qbv79BvEwmuME15FJ4=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/All_states_halfzones_title_legend_logos_300dpi-84b664ef664942f1a31eaefc23341edb.jpg" width="515" height="400" alt="Map of Hardiness Zones in U.S.">
+<form action="/" method="POST">
+    <label for="code">Zipcode:</label>
+    <input type="text" id="code" name="code">
+    <input type="submit" value="Submit">
+    <h3>Input a plant name to find plants with similar needs</h3>
+    <label for="plant">Similar Plants:</label>
+    <input type="text" id="plant" name="plant">
+    <input type="submit" value="Submit">
+    <h3>Search for plants by their common name</h3>
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Submit">
+</form>
+<footer class="bg-light text-center ">
+<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+  plant data taken from <a class="text-dark" href="https://pfaf.org/user/Default.aspx">pfaf.org</a><br>
+  zipcode data taken from <a class="text-dark" href="https://www.plantmaps.com">plantmaps.com</a>
+</div>
+<!-- Copyright -->
+</footer>
+<!-- <h3>Contribute to the database below</h3>
+<h4>Input plant name and whatever info you know about the plant needs. This is how we classify plant needs</h4>
+<h5>Growth: S = slow M = medium F = fast. Soil: L = light (sandy) M = medium H = heavy (clay). Shade: F = full shade S = semi-shade N = no shade. Moisture: D = dry M = Moist We = wet Wa = water.</h5>
+{% endblock %} -->

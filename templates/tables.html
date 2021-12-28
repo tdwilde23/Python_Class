@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block head %}
+<title>Garden Database - {{ name }}</title>
+<style>
+    div {
+      background-image: url('https://www.publicdomainpictures.net/pictures/250000/velka/plant-background-1522907595NpW.jpg');
+    }
+</style>
+{% endblock %}
+{% block content %}
+<body>
+<h2>{{ title }}</h2>
+<h3>{{ extra }}</h3>
+<h5>Growth: S = slow M = medium F = fast. Soil: L = light (sandy) M = medium H = heavy (clay). Shade: F = full shade S = semi-shade N = no shade. Moisture: D = dry M = Moist We = wet Wa = water.</h5>
+<table class="table table-striped table-hover">
+    <th>Latin Name</th>
+    <th>Common Name(s)</th>
+    <th>Habit</th>
+    <th>Height</th>
+    <th>Hardiness</th>
+    <th>Growth</th>
+    <th>Soil</th>
+    <th>Sun</th>
+    <th>Moisture</th>
+    <th>Edible</th>
+    <th>Find Similar Plants</th>
+    <th>Add to My Garden</th>
+{% for row in plantlist: %}
+    <tr>
+    {% for cell in row: %}
+        <td>
+            {{ cell }}
+        </td>
+    {% endfor %}
+    <td><a href="/similar/{{ row[0] }}">find similar plants</a> </td>
+    <td><form method="POST">
+            <input type="submit" name="plant_name" value="{{ row[0] }}">
+        </form>
+    </td></tr>
+{% endfor %}
+</table>
+{% endblock %}
